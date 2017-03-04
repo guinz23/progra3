@@ -17,9 +17,34 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+      
+
+        private void Calcular_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("carne");
+            if (txtvalorUno.Text == "" && txtValorDos.Text == "")
+            {
+                MessageBox.Show("Por favor ingresar los valores correspodientes");
+                return;
+            }
+            int uno = Convert.ToInt32(txtvalorUno.Text);
+            int dos = Convert.ToInt32(txtValorDos.Text);
+            calculadora c = new calculadora(uno, dos);
+            if (rbresta.Checked == true)
+            {
+                txtResultado.Text = (Convert.ToString(c.resta()));
+                return;
+            }
+            else if (rbSuma.Checked == true)
+            {
+                txtResultado.Text = (Convert.ToString(c.suma()));
+                return;
+            }
+            else if (rbMultiplicacion.Checked==true)
+            {
+                txtResultado.Text = (Convert.ToString(c.multiplicacion()));
+                return;
+            }
+           
         }
     }
 }
